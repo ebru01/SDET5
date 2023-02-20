@@ -12,11 +12,31 @@ public class _02_FindingById {
         WebDriver driver = new ChromeDriver();
         driver.get("https://form.jotform.com/221934510376353"); // sayfaya gittim
 
-        WebElement name = driver.findElement(By.id("first_8")); // elemanı id İLE bul
+        WebElement isimKutusu=driver.findElement(By.id("first_8")); // İD ile elemanı bul
+        isimKutusu.sendKeys("ismet"); // kutucuklara yazı gönderme
 
+        WebElement soyadKutusu=driver.findElement(By.id("last_8"));
+        soyadKutusu.sendKeys("temur");
 
+        MyFunc.Bekle(2);
+//        isimKutusu.clear();
+//        soyadKutusu.clear();
 
-        MyFunc.Bekle(5);
+        // Chrome ctrl+f ye basıldığında inspect bölümünde
+        // (inpect bölümü aktifken) arama kutusunu açar
+        // first_name yazarsak bütün kelimelerde arar
+        // #first_name yazarsak bütün ID paramtrelerinde arar
+
+        WebElement labelFirstName=driver.findElement(By.id("sublabel_8_first"));
+        System.out.println("labelFirstName.getText() = " + labelFirstName.getText());
+
+        WebElement labelLastName=driver.findElement(By.id("sublabel_8_last"));
+        System.out.println("labelLastName.getText() = " + labelLastName.getText());
+
+        WebElement submitButton=driver.findElement(By.id("input_2"));
+        submitButton.click();
+
+        MyFunc.Bekle(3);
         driver.quit();
     }
 }
