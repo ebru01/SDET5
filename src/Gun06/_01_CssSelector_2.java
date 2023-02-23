@@ -23,6 +23,9 @@ public class _01_CssSelector_2 extends BaseDriver {
 
         WebElement msg = driver.findElement(By.cssSelector("[id='display']"));
 
+        String kutuIcindeYazi= txtBox.getAttribute("value");
+        System.out.println(kutuIcindeYazi);
+
         Assert.assertTrue("aranılan mesaj bulunamadi", msg.getText().equals(mesajim)  ); // beklenen expect
         // assertTrue: içindeki değer True mu ? True ise hiç bir şey yapmaz.mesaj vermez
         // değilse beklenen olmamışsa hata mesajı verir.
