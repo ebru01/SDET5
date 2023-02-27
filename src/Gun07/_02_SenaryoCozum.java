@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class _02_SenaryoCosum extends BaseDriver {
+public class _02_SenaryoCozum extends BaseDriver {
 
     @Test
     public void Test1()
