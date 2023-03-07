@@ -27,7 +27,11 @@ public class _04_RobotClass extends BaseDriver {
         // acceptAll
         driver.switchTo().frame(8); // name:  gdpr-consent-notice
 
-        List<WebElement> acceptAll= driver.findElements(By.xpath("//span[text()='Accept All']"));
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        List<WebElement> acceptAll=
+                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[text()='Accept All']")));
+
         if (acceptAll.size() > 0)
             acceptAll.get(0).click();
 
@@ -82,8 +86,6 @@ public class _04_RobotClass extends BaseDriver {
         rbt.keyPress(KeyEvent.VK_ENTER); // enterlandı
         rbt.keyRelease(KeyEvent.VK_ENTER);
 
-
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement mesaj= wait.until(ExpectedConditions.
                 visibilityOfElementLocated(By.xpath("//*[text()='has been successfully uploaded.']")));
 
