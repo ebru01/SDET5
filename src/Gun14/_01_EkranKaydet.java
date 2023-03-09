@@ -38,10 +38,14 @@ public class _01_EkranKaydet extends BaseDriver {
 
             TakesScreenshot ts=(TakesScreenshot) driver; //1.Aşama ekran görünütü alma değişkenini tanımladım
             File hafizadakiHali=ts.getScreenshotAs(OutputType.FILE); ////2.Aşama ekran görüntüsü alındı, hafızada
-            //hafızadaki bu bilgiyi doya olarak kaydet.
             FileUtils.copyFile(hafizadakiHali, new File("ekranGoruntuleri\\screenshot.png"));
+            //3.Aşama hafızadaki bu bilgiyi dosya olarak verilen path e kaydet.
         }
-
+        // TODO : burada her hata da aynı dosyayı yeniliyor ve üzerine yazıyor.
+        //        biz istiyoruzki her dosya ayrı olsun yani her kayıt ayrı olsun
+        //        bunu nasıl yaparsınız
+        //        LocalDateTime alıcaksın bilgileri
+        //        YılAyGunSaatDakikaSan -> 2022_10_07_1319_20.png
 
         MyFunc.Bekle(2);
         BekleKapat();
